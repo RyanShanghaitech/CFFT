@@ -1,7 +1,7 @@
 from numpy import *
 from matplotlib.pyplot import *
-from packCFFT import modCFFT as cft
 from skimage import data, transform
+import Function as cfft
 
 sizIm = 128
 
@@ -9,8 +9,8 @@ sizIm = 128
 im = transform.resize(data.shepp_logan_phantom(), (sizIm, sizIm))
 
 # generate centered kspace
-ksCFFT = cft.funFFT(im)
-imRecoCFT = cft.funIFFT(ksCFFT)
+ksCFFT = cfft.fft(im)
+imRecoCFT = cfft.ifft(ksCFFT)
 
 # generate raw kspace using a single fftshift
 ksFFT = fft.fftshift(fft.fftn(im))
