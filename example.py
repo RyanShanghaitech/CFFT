@@ -1,8 +1,7 @@
 from numpy import *
 from matplotlib.pyplot import *
 from skimage import data, transform
-import Function as cfft
-
+import cfft
 sizIm = 128
 
 # create phatom
