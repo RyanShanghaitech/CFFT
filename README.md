@@ -1,2 +1,2 @@
 # CFFT
-Centered Fast Fourier Transform
+A wrapper of numpy to implement Centered Fast Fourier Transform
