@@ -1,4 +1,4 @@
-from numpy import fft as npfft
+from numpy.fft import *
 
-def fft(im): return npfft.fftshift(npfft.fftn(npfft.fftshift(im)))
-def ifft(ks): return npfft.fftshift(npfft.ifftn(npfft.fftshift(ks)))
+def cft(im): return fftshift(fftn(fftshift(im)))
+def icft(ks): return fftshift(ifftn(fftshift(ks)))
