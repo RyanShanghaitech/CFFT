@@ -1,15 +1,15 @@
 from numpy import *
 from matplotlib.pyplot import *
 from skimage import data, transform
-from cfft import *
+import cft
 sizIm = 128
 
 # create phatom
 im = transform.resize(data.shepp_logan_phantom(), (sizIm, sizIm))
 
 # generate centered kspace
-ksCFT = cft(im)
-imRecoCFT = icft(ksCFT)
+ksCFT = cft.fft(im)
+imRecoCFT = cft.ift(ksCFT)
 
 # generate raw kspace using a single fftshift
 ksFFT = fft.fftshift(fft.fftn(im))
