@@ -12,7 +12,7 @@ ksFFT = fft.fftn(im)
 imRecoFFT = fft.ifftn(ksFFT)
 
 # generate centralized kspace
-ksCFT = cft.cft(im)
+ksCFT = cft.fft(im)
 imRecoCFT = cft.ift(ksCFT)
 
 # compare

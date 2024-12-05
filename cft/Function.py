@@ -1,7 +1,7 @@
-from numpy import *
-from numpy.fft import *
+from numpy import ndarray
+from numpy.fft import fftn, ifftn, fftshift, ifftshift
 
-def cft(x:ndarray, axes:tuple|None=None) -> ndarray:
+def fft(x:ndarray, axes:tuple|None=None) -> ndarray:
     x = ifftshift(x, axes=axes)
     x = fftn(x, axes=axes)
     x = fftshift(x, axes=axes)

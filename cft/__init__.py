@@ -1,1 +1,1 @@
-from .Function import cft, ift
+from .Function import fft, ift
