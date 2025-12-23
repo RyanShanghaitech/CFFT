@@ -1,7 +1,7 @@
 from numpy import *
 from matplotlib.pyplot import *
 from skimage import data, transform
-import cft
+from cfft import *
 sizIm = 128
 
 # create phatom
@@ -12,11 +12,11 @@ ksFFT = fft.fftn(im)
 imRecoFFT = fft.ifftn(ksFFT)
 
 # generate centralized kspace
-ksCFT = cft.fft(im)
-imRecoCFT = cft.ift(ksCFT)
+ksCFT = fftnc(im)
+imRecoCFT = ifftnc(ksCFT)
 
 # compare
-figure()
+figure(figsize=(10,4), dpi=150)
 
 subplot(2,5,1)
 imshow(im, cmap='gray')
@@ -49,5 +49,7 @@ title('imRecoCFT.real'); colorbar()
 subplot(2,5,10)
 imshow(imRecoCFT.imag, cmap='gray')
 title('imRecoCFT.imag'); colorbar()
+
+tight_layout(h_pad=0.0, w_pad=1.0)
 
 show()
