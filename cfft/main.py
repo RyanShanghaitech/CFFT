@@ -5,7 +5,9 @@ from torch import Tensor
 
 # both ifftshift() and fftshift() here is neccessary to make FFT consist with DFT
 
-def fftnc(x:NDArray|Tensor, axes:int|tuple|None=None) -> NDArray|Tensor:
+def fftnc(x:NDArray|Tensor, axes: tuple[int]|None=None) -> NDArray|Tensor:
+    if axes is not None and not isinstance(axes, tuple): raise TypeError("")
+    
     if isinstance(x, numpy.ndarray):
         x = numpy.fft.ifftshift(x, axes=axes)
         x = numpy.fft.fftn(x, axes=axes)
@@ -20,7 +22,9 @@ def fftnc(x:NDArray|Tensor, axes:int|tuple|None=None) -> NDArray|Tensor:
 
     raise TypeError(f"Expected numpy.ndarray or torch.Tensor, got {type(x)!r}")
 
-def ifftnc(x:NDArray|Tensor, axes:int|tuple|None=None) -> NDArray|Tensor:
+def ifftnc(x:NDArray|Tensor, axes: tuple[int]|None=None) -> NDArray|Tensor:
+    if axes is not None and not isinstance(axes, tuple): raise TypeError("")
+    
     if isinstance(x, numpy.ndarray):
         x = numpy.fft.ifftshift(x, axes=axes)
         x = numpy.fft.ifftn(x, axes=axes)
