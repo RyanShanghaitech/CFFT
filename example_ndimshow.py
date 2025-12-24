@@ -1,7 +1,7 @@
 from numpy import *
 from matplotlib.pyplot import *
 import slime
-from utility.ndimshow import *
+from utility import *
 
 nPix = 256
 
